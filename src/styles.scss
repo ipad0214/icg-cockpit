@@ -6,6 +6,16 @@ footer {
     height: 6rem;
 }
 
+.hover {
+    &:hover {
+        background-color: orange;
+    }
+
+    &:active {
+        background-color: lightblue;
+    }
+}
+
 .flex {
     display: flex;
 }

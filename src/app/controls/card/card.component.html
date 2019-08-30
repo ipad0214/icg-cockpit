@@ -1,3 +1,8 @@
-<div class="card-container" (click)="navigate()">
-
+<div class="card-container hover" (click)="navigate()">
+    <div class="icon">
+        <fa-icon [icon]="icon" size="8x" [classes]="['icon-color']"></fa-icon>
+    </div>
+    <div class="txt">
+        {{routeName}}
+    </div>
 </div>

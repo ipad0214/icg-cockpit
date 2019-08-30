@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import service from './../../services/rest.interface'
 
 @Component({
   selector: 'app-timer',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TimerComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    console.log(service);
+  }
 
   ngOnInit() {
   }
 
+  saveTimer() {
+    
+  }
 }

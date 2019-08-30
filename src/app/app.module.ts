@@ -9,6 +9,10 @@ import { TimerComponent } from './timer/timer.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FooterComponent } from './footer/footer.component';
 import { CardComponent } from './controls/card/card.component';
+import { WeatherComponent } from './weather/weather.component';
+import { SettingsComponent } from './settings/settings.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ControlsComponent } from './timer/controls/controls.component';
 
 @NgModule({
   declarations: [
@@ -18,11 +22,15 @@ import { CardComponent } from './controls/card/card.component';
     TimerComponent,
     DashboardComponent,
     FooterComponent,
-    CardComponent
+    CardComponent,
+    WeatherComponent,
+    SettingsComponent,
+    ControlsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
