@@ -5,15 +5,10 @@ class RestApiService {
     constructor() {}
 
     async get(url: string) {
-        let data: JSON;
-        axios.get(url).then((response: AxiosResponse) => {
-            data = response.data.JSON
-        });
-
-        return await data;
+        return await axios.get(url);
     }
 
-    async post(url: string, data: JSON) {
+    async post(url: string, data: string) {
         let respData: JSON;
         axios.post(url, data).then((response: AxiosResponse) => {
             respData = response.data.JSON;
@@ -23,12 +18,9 @@ class RestApiService {
     }
 
     async delete(url: string, data: JSON) {
-        let respData: JSON;
-        axios.post(url, data).then((response: AxiosResponse) => {
-            respData = response.data.JSON;
-        });
+        let resp: AxiosResponse = await axios.post(url, data)
 
-        return await respData;
+        return resp.data.JSON;
     }
 }
 

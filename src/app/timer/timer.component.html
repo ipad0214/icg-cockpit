@@ -1,3 +1,58 @@
 <div timer-container>
-
+    <div class="fab-button add-timer" (click)="openModal(createTimer)">
+        <fa-icon [icon]="faClock" class="fa-3x"></fa-icon>
+    </div>
 </div>
+
+<ng-template #createTimer let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Timer erstellen</h4>
+    </div>
+    <div class="modal-body">
+        <h3>Zeiteinstellungen</h3>
+        <div class="days flex horizontal space-between">
+            <div class="day" [class.selected]="days.monday" (click)="days.monday = !days.monday">
+                <span>MO</span>
+            </div>
+            <div class="day" [class.selected]="days.tuesday" (click)="days.tuesday = !days.tuesday">
+                <span>DI</span>
+            </div>
+            <div class="day" [class.selected]="days.wensday" (click)="days.wensday = !days.wensday">
+                <span>MI</span>
+            </div>
+            <div class="day" [class.selected]="days.thursday" (click)="days.thursday = !days.thursday">
+                <span>DO</span>
+            </div>
+            <div class="day" [class.selected]="days.friday" (click)="days.friday = !days.friday">
+                <span>FR</span>
+            </div>
+            <div class="day" [class.selected]="days.saturday" (click)="days.saturday = !days.saturday">
+                <span>SA</span>
+            </div>
+            <div class="day" [class.selected]="days.sunday" (click)="days.sunday = !days.sunday">
+                <span>SO</span>
+            </div>
+        </div>
+        <div>
+            <div>
+                <span>Start-Zeit: </span><timepicker [(ngModel)]="startTime" [showMeridian]="false"></timepicker>
+            </div>
+            <div>
+                <span>End-Zeit: </span><timepicker [(ngModel)]="endTime" [showMeridian]="false"></timepicker>
+            </div>
+        </div>
+        <h3>Wetter</h3>
+        <div>    
+            <span>Wetter berücksichtigen?</span>
+            <div>
+                <span>Regenzeit-Toleranz: </span><timepicker [(ngModel)]="rainToleranz" [showMeridian]="false"></timepicker>
+            </div>
+            <div>
+                <span>Bewässern, wenn regen weniger als: </span>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button>Save</button>
+    </div>
+  </ng-template>
