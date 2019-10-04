@@ -24,6 +24,7 @@ export class TimerComponent implements OnInit {
   private startTime: Date = new Date();
   private endTime: Date = new Date(this.startTime.getMinutes() + 30);
   private rainToleranz: Date = new Date();
+  private loading = true;
 
   constructor(private modalService: BsModalService) {
     console.log(this.days);
@@ -32,10 +33,10 @@ export class TimerComponent implements OnInit {
   public timer: Array<object>
 
   async ngOnInit() {
-    let response: AxiosResponse = await restApi.get("http://localhost:4200/api/timer");
-    let { data } = response;
-
-    this.timer = data.timers;
+    restApi.get("http://localhost:4200/api/timer").then(value => {
+      let { data } = value;
+      this.timer = data.timers;
+    });
   }
 
   saveTimer() {

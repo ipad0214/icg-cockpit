@@ -2,6 +2,13 @@
     <div class="fab-button add-timer" (click)="openModal(createTimer)">
         <fa-icon [icon]="faClock" class="fa-3x"></fa-icon>
     </div>
+    <div class="timer-list">
+        <div class="fancy-spinner loading-spinner" *ngIf="loading">
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
 </div>
 
 <ng-template #createTimer let-modal>
@@ -48,8 +55,9 @@
                 <span>Regenzeit-Toleranz: </span><timepicker [(ngModel)]="rainToleranz" [showMeridian]="false"></timepicker>
             </div>
             <div>
-                <span>Bewässern, wenn regen weniger als: </span>
+                <span>Bewässern, wenn die Rengenmenge weniger als: </span>
             </div>
+            
         </div>
     </div>
     <div class="modal-footer">
