@@ -1,12 +1,23 @@
 <div timer-container>
-    <div class="fab-button add-timer" (click)="openModal(createTimer)">
-        <fa-icon [icon]="faClock" class="fa-3x"></fa-icon>
+
+    <div class="flex horizontal end">
+        <div class="fab-button add-timer" (click)="openModal(createTimer)">
+            <fa-icon [icon]="faClock" class="fa-3x"></fa-icon>
+        </div>
     </div>
     <div class="timer-list">
         <div class="fancy-spinner loading-spinner" *ngIf="loading">
             <div class="ring"></div>
             <div class="ring"></div>
             <div class="dot"></div>
+        </div>
+        <div *ngIf="!loading">
+            <mat-card class="timer-card" *ngFor="let timer of timers; let i = index">
+                <mat-card-header>
+                    <mat-card-title>{{timer.name}}</mat-card-title>
+                    <mat-card-subtitle>{{timer.starttime}}</mat-card-subtitle>
+                </mat-card-header>
+            </mat-card>
         </div>
     </div>
 </div>
@@ -17,6 +28,11 @@
     </div>
     <div class="modal-body">
         <h3>Zeiteinstellungen</h3>
+        <div>
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Timer Name" [(ngModel)]="name">
+            </mat-form-field>
+        </div>
         <div class="days flex horizontal space-between">
             <div class="day" [class.selected]="days.monday" (click)="days.monday = !days.monday">
                 <span>MO</span>
@@ -45,7 +61,7 @@
                 <span>Start-Zeit: </span><timepicker [(ngModel)]="startTime" [showMeridian]="false"></timepicker>
             </div>
             <div>
-                <span>End-Zeit: </span><timepicker [(ngModel)]="endTime" [showMeridian]="false"></timepicker>
+                <input type="text" [(ngModel)]="duration" />
             </div>
         </div>
         <h3>Wetter</h3>
@@ -57,10 +73,9 @@
             <div>
                 <span>Bewässern, wenn die Rengenmenge weniger als: </span>
             </div>
-            
         </div>
     </div>
     <div class="modal-footer">
-        <button>Save</button>
+        <button mat-raised-button (click)="saveTimer()">Save</button>
     </div>
   </ng-template>

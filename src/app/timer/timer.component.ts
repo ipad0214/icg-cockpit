@@ -3,6 +3,7 @@ import restApi from './../../services/rest.interface'
 import { AxiosResponse } from 'axios';
 import { faClock } from '@fortawesome/free-solid-svg-icons'
 import { BsModalRef, BsModalService } from 'ngx-bootstrap';
+import { setTime } from 'ngx-bootstrap/chronos/utils/date-setters';
 
 @Component({
   selector: 'app-timer',
@@ -10,6 +11,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap';
   styleUrls: ['./timer.component.scss']
 })
 export class TimerComponent implements OnInit {
+  private timers: JSON;
   private faClock = faClock;
   private modalRef: BsModalRef;
   private days: object = {
@@ -22,7 +24,9 @@ export class TimerComponent implements OnInit {
     sunday: false
   };
   private startTime: Date = new Date();
-  private endTime: Date = new Date(this.startTime.getMinutes() + 30);
+  public timer: Array<object>;
+  private duration: 0;
+  public name: string;
   private rainToleranz: Date = new Date();
   private loading = true;
 
@@ -30,27 +34,27 @@ export class TimerComponent implements OnInit {
     console.log(this.days);
   }
 
-  public timer: Array<object>
-
   async ngOnInit() {
-    restApi.get("http://localhost:4200/api/timer").then(value => {
-      let { data } = value;
-      this.timer = data.timers;
+    restApi.get('http://localhost:4200/api/timer').then(value => {
+      const { data } = value;
+      this.timers = data;
+      console.log(this.timers);
+      setTimeout(() => {
+        this.loading = false;
+      }, 500);
     });
   }
 
   saveTimer() {
-    let dataSet: object = {
-      days: [
+    const dataSet: object = {
+      startTime: this.startTime,
+      duration: this.duration,
+      name: this.name
+    };
 
-      ],
-      startTime: 4711,
-      endTime: 2230,
-      whenRaining: false,
-      foreCast: false
-    }
-
-    restApi.post("http://localhost:4200/api/timer", JSON.stringify(dataSet));
+    restApi.post('http://localhost:4200/api/timer', JSON.stringify(dataSet)).then(value => {
+      this.timers = value;
+    });
   }
 
   openModal(template: TemplateRef<any>) {

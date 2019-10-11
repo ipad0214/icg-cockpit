@@ -10,21 +10,22 @@ class RestApiService {
 
     async post(url: string, data: string): Promise<JSON> {
         return new Promise((resolve, reject) => {
-            let respData: JSON;
-            axios.post(url, data).then((response: AxiosResponse) => {
-                respData = response.data.JSON;
+            axios.post(url, data, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then((response: AxiosResponse) => {
+                resolve(response.data);
+            }).catch(() => {
+                reject(JSON.stringify({
+                    error: 'Something went wrong'
+                }));
             });
-
-            resolve(respData);
-            reject(JSON.stringify({
-                error: "Something went wrong"
-            }));
         });
-            
     }
 
     async delete(url: string, data: JSON) {
-        let resp: AxiosResponse = await axios.post(url, data)
+        const resp: AxiosResponse = await axios.post(url, data);
 
         return resp.data.JSON;
     }

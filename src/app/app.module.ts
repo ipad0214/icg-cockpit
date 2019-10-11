@@ -15,6 +15,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ControlsComponent } from './timer/controls/controls.component';
 import { ModalModule, TimepickerModule } from 'ngx-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCard, MatCardHeader, MatCardTitle, MatCardSubtitle } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -27,7 +31,11 @@ import { FormsModule } from '@angular/forms';
     CardComponent,
     WeatherComponent,
     SettingsComponent,
-    ControlsComponent
+    ControlsComponent,
+    MatCard,
+    MatCardHeader,
+    MatCardSubtitle,
+    MatCardTitle
   ],
   imports: [
     BrowserModule,
@@ -35,7 +43,10 @@ import { FormsModule } from '@angular/forms';
     FontAwesomeModule,
     FormsModule,
     ModalModule.forRoot(),
-    TimepickerModule.forRoot()
+    TimepickerModule.forRoot(),
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
