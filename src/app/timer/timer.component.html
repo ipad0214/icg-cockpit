@@ -61,7 +61,9 @@
                 <span>Start-Zeit: </span><timepicker [(ngModel)]="startTime" [showMeridian]="false"></timepicker>
             </div>
             <div>
-                <input type="text" [(ngModel)]="duration" />
+                <mat-form-field>
+                    <input matInput placeholder="Duration" [(ngModel)]="duration">
+                </mat-form-field>
             </div>
         </div>
         <h3>Wetter</h3>

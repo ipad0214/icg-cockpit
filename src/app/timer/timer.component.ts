@@ -25,7 +25,7 @@ export class TimerComponent implements OnInit {
   };
   private startTime: Date = new Date();
   public timer: Array<object>;
-  private duration: 0;
+  private duration = 0;
   public name: string;
   private rainToleranz: Date = new Date();
   private loading = true;
@@ -54,6 +54,7 @@ export class TimerComponent implements OnInit {
 
     restApi.post('http://localhost:4200/api/timer', JSON.stringify(dataSet)).then(value => {
       this.timers = value;
+      this.modalRef.hide();
     });
   }
 
