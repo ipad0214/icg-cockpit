@@ -1,7 +1,7 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import restApi from './../../services/rest.interface'
+import restApi from './../../services/rest.interface';
 import { AxiosResponse } from 'axios';
-import { faClock } from '@fortawesome/free-solid-svg-icons'
+import { faClock } from '@fortawesome/free-solid-svg-icons';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap';
 import { setTime } from 'ngx-bootstrap/chronos/utils/date-setters';
 

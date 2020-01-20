@@ -16,9 +16,17 @@ import { ControlsComponent } from './timer/controls/controls.component';
 import { ModalModule, TimepickerModule } from 'ngx-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatCard, MatCardHeader, MatCardTitle, MatCardSubtitle } from '@angular/material/card';
+import { MatCard, MatCardHeader, MatCardTitle, MatCardSubtitle, MatCardContent } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { WeatherProxyComponent } from './settings/weather-proxy/weather-proxy.component';
+import { ForecastComponent } from './weather/forecast/forecast.component';
+import { CurrentComponent } from './weather/current/current.component';
+import { ForecastItemComponent } from './weather/forecast/forecast-item/forecast-item.component';
+import { ChartsModule } from 'ng2-charts';
+import { TemperatureChartComponent } from './temperature-chart/temperature-chart.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
 
 @NgModule({
   declarations: [
@@ -35,7 +43,13 @@ import { MatInputModule } from '@angular/material/input';
     MatCard,
     MatCardHeader,
     MatCardSubtitle,
-    MatCardTitle
+    MatCardContent,
+    MatCardTitle,
+    WeatherProxyComponent,
+    ForecastComponent,
+    CurrentComponent,
+    ForecastItemComponent,
+    TemperatureChartComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +60,10 @@ import { MatInputModule } from '@angular/material/input';
     TimepickerModule.forRoot(),
     BrowserAnimationsModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    MatButtonToggleModule,
+    ChartsModule,
+    NgxChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

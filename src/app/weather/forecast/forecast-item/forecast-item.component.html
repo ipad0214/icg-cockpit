@@ -1,0 +1,27 @@
+<mat-card class="weather-card" (click)="toggleDetails = !toggleDetails">
+    <mat-card-header>
+        <mat-card-title>{{data.dt_txt.split(' ')[1].split(':')[0]}} Uhr</mat-card-title>
+        <mat-card-subtitle class="temp-line">
+            <span class="current">{{data.main.temp}} <span>°C</span></span>
+            <span class="min">{{data.main.temp_min}} °C</span>
+            <span class="max">{{data.main.temp_max}} °C</span>
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content *ngIf="toggleDetails" class="details-container">
+        <div class="details">
+            <p>DETAILS</p>
+            <div>Luftdruck: {{data.main.pressure}} hPa</div>
+            <div>Feuchtigkeit: {{data.main.humidity}}%</div>
+        </div>
+        <div class="wind">
+            <p>WIND</p>
+            <div>Richtung: {{data.wind.deg}} °</div>
+            <div>Geschwindigkeit: {{data.wind.speed}} km/h</div>
+        </div>
+        <div class="rain">
+            <p>NIEDERSCHLAG</p>
+            <div>Menge: {{rainfall}} mm/qm</div>
+            <div>Dauer: {{rainduration}}</div>
+        </div>    
+    </mat-card-content>
+</mat-card>

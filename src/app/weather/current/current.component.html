@@ -1,0 +1,31 @@
+<mat-card class="weather-card" (click)="showDetails = true">
+    <mat-card-header class="card-header">
+        <mat-card-title>{{country}}, {{city}}</mat-card-title>
+        <mat-card-subtitle class="temp-line">
+            <span class="current">{{temperature}} <span>°C</span></span>
+            <span class="min">{{min}} °C</span>
+            <span class="max">{{max}} °C</span>
+        </mat-card-subtitle>
+        <img src="data:image/png;base64,{{icon}}" />
+    </mat-card-header>
+    <mat-card-content *ngIf="showDetails" class="details-container">
+        <div class="details">
+            <p>DETAILS</p>
+            <div>Luftdruck: {{pressure}} hPa</div>
+            <div>Feuchtigkeit: {{humidity}}%</div>
+        </div>
+        <div class="wind">
+            <p>WIND</p>
+            <div>Richtung: {{windDeg}} °</div>
+            <div>Geschwindigkeit: {{windSpeed}} km/h</div>
+        </div>
+        <div class="rain">
+            <p>NIEDERSCHLAG</p>
+            <div>Menge: {{rainfall}} mm/qm</div>
+            <div>Dauer: {{rainduration}}</div>
+        </div>
+        <div>
+            <app-temperature-chart></app-temperature-chart>
+        </div>
+    </mat-card-content>
+</mat-card>

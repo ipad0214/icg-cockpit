@@ -29,13 +29,13 @@ $icg-cockpit-theme: mat-light-theme($icg-cockpit-primary, $icg-cockpit-accent, $
 @import "./assets/layout.scss";
 @import "./assets/colors.scss";
 
-footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 6rem;
-}
+// footer {
+//     position: fixed;
+//     bottom: 0;
+//     left: 0;
+//     right: 0;
+//     height: 6rem;
+// }
 
 .hover {
     &:hover {
@@ -45,6 +45,13 @@ footer {
     &:active {
         background-color: lightblue;
     }
+}
+
+.info-text {
+  font-size: 0.75rem;
+  color: grey;
+  margin-bottom: 1rem;
+  line-height: 0.75;
 }
 
 .fab-button {
@@ -107,5 +114,9 @@ footer {
       transform: rotate(360deg) scale(0.5);
     }
   }
-html, body { height: 100%; }
+html, body { min-height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html {
+  background: rgb(136,136,136);
+  background: linear-gradient(0deg, rgba(173,173,173,1) 0%,rgba(173,173,173,1) 14%, rgba(255,255,255,1) 100%);
+}

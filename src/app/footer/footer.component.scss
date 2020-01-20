@@ -1,5 +1,6 @@
-.footer-container {
-    width: 100%;
-    background-color: black;
-    color: white;
+@import '../../assets/colors.scss';
+
+footer {
+    height: 10rem;
+    background-color: $control-background;
 }

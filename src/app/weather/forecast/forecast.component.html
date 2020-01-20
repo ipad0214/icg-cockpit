@@ -1,0 +1,13 @@
+<h3>Wetter-Vorhersage</h3>
+
+<div *ngFor="let dataSet of dateSortedData">
+    <mat-card class="weather-card">
+        <mat-card-header>
+            <h3>{{dataSet.date}}</h3>
+        </mat-card-header>
+        <mat-card-content *ngFor="let forecastSet of dataSet.data">
+            <app-forecast-item [data]="forecastSet">
+            </app-forecast-item>
+        </mat-card-content>
+    </mat-card>
+</div>

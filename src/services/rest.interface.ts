@@ -16,10 +16,8 @@ class RestApiService {
                 }
             }).then((response: AxiosResponse) => {
                 resolve(response.data);
-            }).catch(() => {
-                reject(JSON.stringify({
-                    error: 'Something went wrong'
-                }));
+            }).catch(error => {
+                console.log(error);
             });
         });
     }

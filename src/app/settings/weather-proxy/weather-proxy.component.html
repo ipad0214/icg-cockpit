@@ -1,0 +1,59 @@
+<div class="weather-proxy">
+    <h2>Wetter Proxy</h2>
+    <div class="weather-proxs-settings">
+        <div *ngIf="!persistedApiKey" class="no-api-key-error">
+            <div>
+                <span>
+                    Um die Wettervorhersage zu benutzen, müssen Sir vorhereinen Account erstellen bei:
+                </span>
+            </div>
+            <a href="https://home.openweathermap.org/users/sign_up" target="_blank"><strong>OpenWeatherMap.org</strong></a>
+            <div>
+                <span>
+                    Bitte geben Sie danach den Api-Key hier an: 
+                </span>
+            </div>
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Api Key" [(ngModel)]="apiKey">
+            </mat-form-field>  
+            <button mat-raised-button (click)="save()">Save</button>             
+        </div>
+        <div>
+            <h3>powered by: <a href="https://home.openweathermap.org/" target="_blank"><strong>openweahtermap.org</strong></a></h3>
+            <div>
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Api Key" [(ngModel)]="apiKey">
+                </mat-form-field>                  
+            </div>
+            <div>
+                <div>
+                    <span class="info-text">
+                        Die Polling duration gibt an wie oft der Wetterbericht aktualisier und gespeichert werden sollen
+                    </span>
+                </div>
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Polling duration" [(ngModel)]="pollingDuration">
+                </mat-form-field>
+                <div>
+                    <span class="info-text">
+                        Die Postleitzahl der Wetterstation.
+                    </span>
+                </div>
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="ZIP" [(ngModel)]="zipCode">
+                </mat-form-field>
+                <div>
+                    <span class="info-text">
+                        Der Ländercode der Wetterstation.
+                    </span>
+                </div>
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Ländercode" [(ngModel)]="countryCode">
+                </mat-form-field>
+            </div>
+            <div>
+                <button mat-raised-button (click)="save()">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

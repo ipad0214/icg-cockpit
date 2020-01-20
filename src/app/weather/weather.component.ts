@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import restApi from './../../services/rest.interface'
+
+import { async } from '@angular/core/testing';
 
 @Component({
   selector: 'app-weather',
@@ -13,8 +14,6 @@ export class WeatherComponent implements OnInit {
   public temp: number;
 
   async ngOnInit() {
-    let response  = await restApi.get('http://localhost:4200/api/weather');
-    let { data } = response;
-    this.temp = data.temprature;
+
   }
 }
